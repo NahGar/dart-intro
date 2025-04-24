@@ -4,6 +4,8 @@ void main() {
   
   httpGet('http://dummy.url').then( (value) {
     print(value);
+  }).catchError( (err) {
+    print('Error: $err');
   });
   
   print('Fin del programa');
@@ -12,6 +14,7 @@ void main() {
 Future<String> httpGet( String url ) {
   
   return Future.delayed( const Duration(seconds: 1), () {
-    return 'Respuesta de la petición http';
+    throw 'Error en la petición';
+    //return 'Respuesta de la petición http';
   });
 }
